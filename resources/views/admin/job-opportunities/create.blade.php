@@ -7,7 +7,7 @@
     </div>
 @endif
 <div class="container mx-auto">
-  <h1 class="text-2xl font-bold my-4 text-center">Create Job Opportunity</h1>
+  <h3 class="text-2xl font-bold my-4 text-center">Create Job Opportunity</h3>
 
   <form action="{{ route('admin.job-opportunity.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
@@ -36,7 +36,7 @@
 
       <div class="col-span-4 sm:col-span-2">
         <label for="skills" class="block font-medium">Skills:</label>
-        <input type="text" style="width: 100%;" id="skills" name="skills" class="w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500" required>
+        <textarea style="resize: none;width: 100%;" id="skills" name="skills" class="w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500" rows="5" required></textarea>
         <p class="text-sm text-gray-500">Semicolon-separated list: Skill1; Skill2; Skill3; ....</p>
       </div>
 

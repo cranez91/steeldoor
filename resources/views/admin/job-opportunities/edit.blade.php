@@ -7,7 +7,7 @@
     </div>
 @endif
 <div class="container mx-auto">
-  <h1 class="text-2xl font-bold my-4 text-center">Update Job Opportunity</h1>
+  <h3 class="text-2xl font-bold my-4 text-center">Update Job Opportunity</h3>
 
   <form action="{{ route('admin.job-opportunity.update', $jobOpportunity->slug) }}" method="POST" enctype="multipart/form-data">
     @csrf  

@@ -18,10 +18,11 @@ class JobOpportunityController extends Controller
         return view('admin.job-opportunities.dashboard', compact('jobs'));
     }
 
-    public function adminJobOpportunities()
+    public function applicants(string $slug)
     {
-        $jobOpportunities = JobOpportunity::all();
-        return view('admin.job-opportunities', compact('jobOpportunities'));
+        $jobOpportunity = JobOpportunity::where('slug', $slug)->first();
+        $applicants = $jobOpportunity ? $jobOpportunity->applicants()->get() : [];
+        return view('admin.job-opportunities.applicants', compact('applicants'));
     }
 
     public function create()
