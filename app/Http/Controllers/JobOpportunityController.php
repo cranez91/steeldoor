@@ -14,13 +14,15 @@ class JobOpportunityController extends Controller
 {
     public function adminDashboard()
     {
-        // Implementation for admin dashboard
+        $jobs = JobOpportunity::all();
+        return view('admin.job-opportunities.dashboard', compact('jobs'));
     }
 
-    public function adminJobOpportunities()
+    public function applicants(string $slug)
     {
-        $jobOpportunities = JobOpportunity::all();
-        return view('admin.job-opportunities', compact('jobOpportunities'));
+        $jobOpportunity = JobOpportunity::where('slug', $slug)->first();
+        $applicants = $jobOpportunity ? $jobOpportunity->applicants()->get() : [];
+        return view('admin.job-opportunities.applicants', compact('applicants'));
     }
 
     public function create()
@@ -39,20 +41,35 @@ class JobOpportunityController extends Controller
         $jobOpportunity->slug = Str::slug("$company $title");
         $jobOpportunity->update();
 
-        return redirect()->route('admin.job-opportunities.index');
+        return Redirect::back()->with('success', 'Job application created successfully!');
     }
 
-    public function edit()
+    public function edit(string $slug)
     {
-        return view('admin.job-opportunities.edit');
+        $jobOpportunity = JobOpportunity::where('slug', $slug)->first();
+        return view('admin.job-opportunities.edit', compact('jobOpportunity'));
     }
 
-    public function update(JobOpportunityRequest $request, JobOpportunity $jobOpportunity)
+    public function update(JobOpportunityRequest $request, string $slug)
     {
         // Updating the JobOpportunity with the validated data
+        $jobOpportunity = JobOpportunity::where('slug', $slug)->first();
         $jobOpportunity->update($request->validated());
+        
+        $company = $jobOpportunity->company_name;
+        $title = $jobOpportunity->title;
+        $jobOpportunity->slug = Str::slug("$company $title");
+        $jobOpportunity->update();
 
-        return redirect()->route('admin.job-opportunities.index');
+        return Redirect::back()->with('success', 'Job application updated successfully!');
+    }
+
+    public function destroy(string $slug)
+    {
+        $jobOpportunity = JobOpportunity::where('slug', $slug)->first();
+        $jobOpportunity->delete();
+        
+        return redirect()->route('admin.job-opportunity.dashboard');
     }
 
     public function jobOpportunities()

@@ -19,4 +19,8 @@ class JobOpportunity extends Model
         'skills'
     ];
 
+    public function applicants()
+    {
+        return $this->hasMany(JobSeeker::class);
+    }
 }
