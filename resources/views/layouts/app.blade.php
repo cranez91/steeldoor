@@ -40,6 +40,15 @@
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
                         @guest
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('job-opportunities.index') }}">Job Seekers</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('admin.job-opportunity.dashboard') }}">Hiring Managers</a>
+                            </li>
+
                             @if (Route::has('login'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>

@@ -23,4 +23,9 @@ class JobOpportunity extends Model
     {
         return $this->hasMany(JobSeeker::class);
     }
+
+    public function scopeGetBySlug($query, $slug)
+    {
+        return $query->where('slug', $slug)->first();
+    }
 }

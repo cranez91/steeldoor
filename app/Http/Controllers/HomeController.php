@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\JobOpportunity;
+use App\Models\JobSeeker;
 use Illuminate\Http\Request;
+use App\Http\Requests\JobApplicationRequest;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Redirect;
 
 class HomeController extends Controller
 {
@@ -13,16 +18,36 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        //$this->middleware('auth');
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function index()
+    public function jobOpportunities()
     {
-        return view('home');
+        return view('job-opportunities.index');
+    }
+
+    public function showJobOpportunity(string $slug)
+    {
+        return view('job-opportunities.show', compact('slug'));
+    }
+
+    public function adminDashboard()
+    {
+        return view('admin.job-opportunities.dashboard');
+    }
+
+    public function applicants(string $slug)
+    {
+        return view('admin.job-opportunities.applicants', compact('slug'));
+    }
+
+    public function createOpportunity()
+    {
+        return view('admin.job-opportunities.create');
+    }
+
+    public function editOpportunity(string $slug)
+    {
+        return view('admin.job-opportunities.edit', compact('slug'));
     }
 }
