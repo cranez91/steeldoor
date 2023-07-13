@@ -13,7 +13,7 @@
                             </div>
                         </section>
                         <p v-if="filteredJobs.length == 0" class="py-4 text-center">
-                            No job opportunities found.
+                            Jobs not found.
                         </p>
                         <section class="divide-y divide-gray-200 list-none text-center"
                             v-for="job in filteredJobs" :key="job.id">
@@ -31,15 +31,10 @@
   
   <script>
   export default {
-    props: {
-        jobs: {
-            type: Array,
-            required: true
-        }
-    },
     data() {
         return {
-            search: ''
+            search: '',
+            jobs: []
         };
     },
     computed: {
@@ -52,6 +47,20 @@
           job.salary_range.toLowerCase().includes(this.search.toLowerCase())
         );
       }
+    },
+    mounted() {
+        this.fetchJobOpportunities();
+    },
+    methods: {
+        fetchJobOpportunities() {
+        axios.get('/api/seeker/job-opportunities')
+            .then(response => {
+                this.jobs = response.data.data;
+            })
+            .catch(error => {
+                console.error(error);
+            });
+        }
     }
   };
   </script>
