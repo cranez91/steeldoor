@@ -20,9 +20,8 @@ class JobOpportunityRequest extends FormRequest
             'location' => 'required|string|max:100',
             'title' => 'required|string|max:100',
             'description' => 'required|string',
-            'salary_range' => 'required|string|max:100',
-            'skills' => 'required|array',
-            'skills.*' => 'string|max:100',
+            'salary_range' => 'required|string|max:50',
+            'skills' => 'required|string|max:100',
         ];
     }
 

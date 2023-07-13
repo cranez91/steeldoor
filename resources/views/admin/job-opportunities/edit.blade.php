@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-    <job-list></job-list>
+  <edit-job slug="{{$slug}}"></edit-job>
 @endsection

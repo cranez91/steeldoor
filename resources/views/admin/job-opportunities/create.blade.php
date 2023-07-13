@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-    <job-list></job-list>
+  <create-job></create-job>
 @endsection

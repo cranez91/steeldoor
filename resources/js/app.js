@@ -20,6 +20,11 @@ window.Vue = require('vue').default;
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('job-list', require('./components/JobList.vue').default);
+Vue.component('admin-dashboard', require('./components/AdminDashboard.vue').default);
+Vue.component('job-details', require('./components/JobDetails.vue').default);
+Vue.component('applicants', require('./components/Applicants.vue').default);
+Vue.component('create-job', require('./components/CreateJob.vue').default);
+Vue.component('edit-job', require('./components/EditJob.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
