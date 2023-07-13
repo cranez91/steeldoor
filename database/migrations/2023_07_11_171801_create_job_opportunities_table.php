@@ -18,7 +18,7 @@ class CreateJobOpportunitiesTable extends Migration
             $table->string('company_name', 100);
             $table->string('location', 100);
             $table->string('title', 100);
-            $table->string('slug', 255);
+            $table->string('slug', 255)->nullable();
             $table->text('description');
             $table->string('salary_range', 50);
             $table->text('skills');

@@ -119,8 +119,8 @@ class JobOpportunityController extends Controller
         $jobOpportunity->update();
 
         return response()->json([
-            'message' => 'Job application created successfully'
-        ]);
+            'message' => 'Job opportunity created successfully'
+        ], 201);
     }
 
     /**
@@ -142,7 +142,7 @@ class JobOpportunityController extends Controller
         $jobOpportunity->update();
 
         return response()->json([
-            'message' => 'Job application updated successfully',
+            'message' => 'Job opportunity updated successfully',
             'data' => $jobOpportunity
         ]);
     }

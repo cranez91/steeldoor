@@ -16,4 +16,18 @@ class JobSeeker extends Model
         'job_opportunity_id'
     ];
 
+    /**
+     * Get the current connection name for the model.
+     *
+     * @return string
+     */
+    public function getConnectionName()
+    {
+        $connection = 'mysql';
+        if (app()->environment('testing'))
+            $connection = 'sqlite';
+
+        return $connection;
+    }
+
 }
