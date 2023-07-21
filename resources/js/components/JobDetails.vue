@@ -2,25 +2,20 @@
     <div class="py-8">
         <div class="max-w-7xl mx-4 sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200 text-center">
+                <div class="p-6 bg-white border-b border-gray-200 mx-4 text-center">
                     <h2 class="text-2xl font-bold mb-2 py-4">{{job.title}}</h2>
                 </div>
-                <div class="p-6 bg-white border-b border-gray-200 text-center">
+                <div class="p-6 bg-white border-b border-gray-200 mx-4 text-center">
                     <h5 class="text-sm font-bold mb-2">
-                        {{job.company_name}} / {{job.location}}
+                        {{job.company_name}} @ {{job.location}} ({{job.salary_range}})
                     </h5>
                 </div>
-                <div class="p-6 bg-white border-b border-gray-200 text-center">
-                    <h6 class="text-sm font-bold mb-2">
-                        {{job.salary_range}}
-                    </h6>
-                </div>
-                <div class="bg-white border-b border-gray-200 mx-4">
+                <div class="p-6 bg-white border-b border-gray-200 mx-4">
                     <p class="text-md mb-2">
                         <strong>Job Description</strong>: {{job.description}}
                     </p>
                 </div>
-                <div class="bg-white border-b border-gray-200 mx-4">
+                <div class="p-6 bg-white border-b border-gray-200 mx-4">
                     <p class="text-md mb-2">
                         <strong>Skills</strong>:
                     </p>
@@ -28,7 +23,7 @@
                         <li v-for="skill in job.skills" :key="skill">{{ skill }}</li>
                     </ul>
                 </div>
-                <div class="bg-white border-b border-gray-200 mx-4">
+                <div class="p-6 bg-white border-b border-gray-200 mx-4">
                     <div class="border-b border-gray-900/10 pb-12">
                         <h2 class="text-base font-semibold leading-7 text-gray-900">Apply to this Job</h2>
                         <p class="mt-1 text-sm leading-6 text-gray-600">Use a permanent address where you can receive mail.</p>
@@ -59,7 +54,10 @@
                                 </div>
                             </div>
                             <div class="mt-6 flex items-center justify-end gap-x-6 py-4">
-                                <button type="submit" class="rounded-md px-3 py-2 text-sm font-semibold text-black">Apply</button>
+                                <button
+                                    type="submit"
+                                    class="px-4 py-2 bg-indigo-600 text-white font-medium rounded-md hover:bg-indigo-700"
+                                >Apply</button>
                             </div>
                         </form>
                     </div>
