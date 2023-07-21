@@ -1,18 +1,12 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-	purge: [],
-	darkMode: false, // or 'media' or 'class'
+	content: [
+	  "./resources/**/*.blade.php",
+	  "./resources/**/*.js",
+	  "./resources/**/*.vue",
+	],
 	theme: {
-		fontFamily: {
-		'sans': ['Poppins', 'ui-sans-serif', 'system-ui'],
-		},
-		extend: {},
+	  extend: {},
 	},
-	variants: {
-		extend: {},
-	},
-	plugins: [
-    // ...
-    require('@tailwindcss/forms'),
-  ],
-}
+	plugins: [],
+  }
